@@ -1,0 +1,7 @@
+---
+- name: My playbook
+  hosts: target1,target2
+  tasks:
+    - name: Debug
+      debug:
+        msg: "Message is: {{ message }}"

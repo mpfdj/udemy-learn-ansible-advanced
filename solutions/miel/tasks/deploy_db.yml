@@ -1,0 +1,8 @@
+---
+- name: Deploying database
+  debug:
+    msg:
+      - Deploying database on {{ database_host }} ...
+# Undefined variable
+#      - Message from target1 {{ message_target1 }} ...
+

@@ -1,0 +1,9 @@
+---
+- name: My playbook with host group
+  hosts: my_target_servers
+  tasks:
+    - name: Debug
+      debug:
+        msg:
+          - "Message is: {{ message }}"
+          - "Name is: {{ name }}"

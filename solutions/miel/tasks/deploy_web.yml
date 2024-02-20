@@ -1,0 +1,4 @@
+---
+- name: Deploying web server
+  debug:
+    msg: Deploying web server...

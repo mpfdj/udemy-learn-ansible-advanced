@@ -1,0 +1,12 @@
+---
+- name: My playbook with host group
+  hosts: my_target_servers
+  tasks:
+    - name: Debug variables
+      debug:
+        msg:
+          - "Message is: {{ message }}"
+          - "Name is: {{ name }}"
+
+    - include: tasks/deploy_db.yml
+    - include: tasks/deploy_web.yml

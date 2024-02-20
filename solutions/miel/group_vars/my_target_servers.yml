@@ -1,0 +1,9 @@
+---
+ansible_connection: ssh
+ansible_user: root
+ansible_ssh_pass: Passw0rd
+
+message: hello from target
+name: Miel
+
+database_host: localhost
