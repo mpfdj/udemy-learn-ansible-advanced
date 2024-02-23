@@ -1,0 +1,12 @@
+---
+- name: This playbook is using collections
+  hosts: localhost
+  tasks:
+    - name: Get information on generated certificate
+      community.crypto.x509_certificate_info:
+        path: files/cert.pem
+      register: cert
+
+    - name: Debug
+      debug:
+        var: cert

@@ -20,9 +20,9 @@ https://github.com/robertdebock
 
 
 docker pull mmumshad/ubuntu-ssh-enabled
-docker run --name target1 -d mmumshad/ubuntu-ssh-enabled 
-docker run --name target2 -d mmumshad/ubuntu-ssh-enabled 
-docker run --name target3 -d mmumshad/ubuntu-ssh-enabled 
+docker run --name target1 -d --rm mmumshad/ubuntu-ssh-enabled 
+docker run --name target2 -d --rm mmumshad/ubuntu-ssh-enabled 
+docker run --name target3 -d --rm mmumshad/ubuntu-ssh-enabled 
 
 docker inspect target1 | grep IPAddress
 docker inspect target2 | grep IPAddress
