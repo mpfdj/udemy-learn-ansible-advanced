@@ -114,6 +114,7 @@ apt-get purge openjdk*
 
 # Goss
 https://github.com/goss-org/goss
+https://github.com/goss-org/goss/blob/master/docs/manual.md#available-tests
 
 # Goss Manual installation
 curl -L https://github.com/goss-org/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss
