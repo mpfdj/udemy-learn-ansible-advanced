@@ -46,7 +46,7 @@ parameters:
     default: "{0}/{{1}}"
 
 jobs:
-  - template: test.yml
+  - template: tests-test.yml
     parameters:
       jobs:
         - ${{ if eq(length(parameters.groups), 0) }}:

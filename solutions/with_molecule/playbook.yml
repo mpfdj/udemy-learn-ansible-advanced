@@ -1,0 +1,19 @@
+---
+- name: Install Java
+  hosts: localhost
+  tasks:
+    - name: Install Hello package
+      package:
+        name: hello
+        state: present
+
+    - name: Copy Goss test to guest
+      copy:
+        src: "{{ playbook_dir }}/files/goss/test.yml"
+        dest: /tmp
+        remote_src: true
+        mode: 0777
+
+    - name: Test with tests file
+      goss:
+        path: /tmp/test.yml

@@ -97,3 +97,27 @@ export ANSIBLE_STDOUT_CALLBACK=skippy
 export ANSIBLE_STDOUT_CALLBACK=json
 
 # Callback plugin
+
+
+# Molecule
+https://medium.com/@fabio.marinetti81/validate-ansible-roles-through-molecule-delegated-driver-a2ea2ab395b5
+molecule init scenario -d default test-hello-is-present
+molecule test --scenario-name test-hello-is-present
+molecule test --all
+
+
+
+apt-cache show openjdk-11-jdk
+apt-get install openjdk-11-jdk=11.0.14.1+1-0ubuntu1
+apt-get purge openjdk*
+
+
+# Goss
+https://github.com/goss-org/goss
+
+# Goss Manual installation
+curl -L https://github.com/goss-org/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss
+chmod +rx /usr/local/bin/goss
+
+# Goss ansible module
+https://github.com/indusbox/goss-ansible/tree/master

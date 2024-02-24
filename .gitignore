@@ -79,4 +79,5 @@ fabric.properties
 
 /solutions/with_inventories/*.log
 /solutions/with_collections/*.log
+/solutions/with_molecule/*.log
 /.idea/

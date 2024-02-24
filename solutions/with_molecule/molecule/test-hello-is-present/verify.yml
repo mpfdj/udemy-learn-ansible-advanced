@@ -1,0 +1,27 @@
+---
+- name: Verify
+  hosts: all
+  connection: local
+  gather_facts: false
+  vars:
+    molecule_scenario: "{{ lookup('env', 'MOLECULE_SCENARIO_NAME') }}"
+    molecule_test_directory: "{{ lookup('env', 'MOLECULE_VERIFIER_TEST_DIRECTORY') }}"
+  tasks:
+    - name: Debug
+      debug:
+        msg:
+          - "molecule_scenario: {{ molecule_scenario }}"
+          - "molecule_test_directory: {{ molecule_test_directory }}"
+
+    - name: Copy Goss test to guest
+      copy:
+        src: tests/test.yml
+        dest: /tmp
+        remote_src: true
+        mode: 0777
+
+    - name: Test with tests file
+      goss:
+        path: /tmp/test.yml
+        format: junit
+        output_file: /tmp/goss-junit.xml

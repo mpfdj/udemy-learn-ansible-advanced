@@ -1,0 +1,9 @@
+---
+#package:
+#  hello:
+#    installed: true
+
+file:
+  /tmp:
+    exists: true
+    filetype: directory

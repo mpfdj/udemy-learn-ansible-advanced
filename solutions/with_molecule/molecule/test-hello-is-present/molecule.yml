@@ -1,0 +1,19 @@
+---
+## https://github.com/ansible-community/molecule/issues/634
+
+#dependency:
+#  name: galaxy
+#  options:
+#    role-file: roles/requirements.yml
+#    ignore-certs: True
+
+#dependency:
+#  name: shell
+#  command: ansible-galaxy install --ignore-certs --role-file roles/requirements.yml --roles-path roles --force
+
+platforms:
+  - name: instance
+    # you might want to add your own variables here based on what provisioning
+    # you are doing like:
+    # image: quay.io/centos/centos:stream8
+
