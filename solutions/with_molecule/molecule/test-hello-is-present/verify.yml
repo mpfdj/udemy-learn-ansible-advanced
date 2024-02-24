@@ -13,6 +13,11 @@
           - "molecule_scenario: {{ molecule_scenario }}"
           - "molecule_test_directory: {{ molecule_test_directory }}"
 
+
+# TODO: DON'T FORGET TO INSTALL GOSS ON THE TARGET MACHINE
+# https://github.com/goss-org/goss > Installation > Manual installation
+
+
     - name: Copy Goss test to guest
       copy:
         src: tests/test.yml
