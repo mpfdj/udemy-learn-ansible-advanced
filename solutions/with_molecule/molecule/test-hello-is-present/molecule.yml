@@ -17,8 +17,13 @@ platforms:
     # you are doing like:
     # image: quay.io/centos/centos:stream8
 
-lint: |
-  bash -c "
-  set -e
-  yamllint .
-  ansible-lint"
+
+
+# lint phase has been decommissioned
+# https://github.com/ansible/molecule/pull/3802
+# https://github.com/ansible/molecule/discussions/3825#discussioncomment-4908366
+
+#lint: |
+#  set -e
+#  yamllint .
+#  ansible-lint .
