@@ -17,3 +17,8 @@ platforms:
     # you are doing like:
     # image: quay.io/centos/centos:stream8
 
+lint: |
+  bash -c "
+  set -e
+  yamllint .
+  ansible-lint"
