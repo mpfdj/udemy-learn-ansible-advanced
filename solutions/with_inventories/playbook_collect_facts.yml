@@ -1,0 +1,16 @@
+---
+- name: RedHat play
+  hosts: target4
+  gather_facts: true
+  tasks:
+    - name: Filter and return only selected facts
+      setup:
+        gather_subset:
+          - all
+      register: my_facts
+
+    - name: Debug
+      debug:
+        msg:
+          - "OS Distribution: {{ my_facts.ansible_facts.ansible_distribution }} {{ my_facts.ansible_facts.ansible_distribution_version }} - {{  my_facts.ansible_facts.ansible_distribution_release }}"
+          - "IP Address: {{ ansible_ssh_host  }}"

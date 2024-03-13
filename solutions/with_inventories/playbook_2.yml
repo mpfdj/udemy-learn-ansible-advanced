@@ -1,6 +1,6 @@
 ---
 - name: My playbook with host group
-  hosts: my_target_servers
+  hosts: ubuntu_servers
   tasks:
     - name: Debug
       debug:

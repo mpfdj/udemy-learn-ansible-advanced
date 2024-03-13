@@ -24,11 +24,15 @@ docker run --name target1 -d --rm mmumshad/ubuntu-ssh-enabled
 docker run --name target2 -d --rm mmumshad/ubuntu-ssh-enabled 
 docker run --name target3 -d --rm mmumshad/ubuntu-ssh-enabled 
 
+docker image build -f redhat-ubi.dockerfile -t miel1980/redhat-ssh-enabled .
+docker run --name target4 -d --rm miel1980/redhat-ssh-enabled
+
 docker inspect target1 | grep IPAddress
 docker inspect target2 | grep IPAddress
 docker inspect target3 | grep IPAddress
 
 ssh <container-ip-address>
+sshpass -p Passw0rd ssh root@172.17.0.2
 
 Username: root
 Password: Passw0rd

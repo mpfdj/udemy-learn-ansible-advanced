@@ -1,7 +1,15 @@
 ---
 - name: My playbook
-  hosts: target1,target2
+  hosts: target1
   tasks:
     - name: Debug
       debug:
         msg: "Message is: {{ message }}"
+
+    - name: Print working directory
+      command: ls -lha
+      register: pwd
+
+    - name: Debug
+      debug:
+        var: pwd
