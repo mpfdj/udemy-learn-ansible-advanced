@@ -18,6 +18,9 @@
 # https://github.com/goss-org/goss > Installation > Manual installation
 
 
+
+# TODO: First we need to install python3 on the target node, this is required by Ansible
+
     - name: Copy Goss test to guest
       copy:
         src: tests/test.yml
