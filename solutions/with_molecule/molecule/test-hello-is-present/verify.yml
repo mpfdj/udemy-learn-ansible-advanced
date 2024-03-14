@@ -14,7 +14,7 @@
           - "molecule_test_directory: {{ molecule_test_directory }}"
 
 
-# TODO: DON'T FORGET TO INSTALL GOSS ON THE TARGET MACHINE
+# TODO: DON'T FORGET TO INSTALL GOSS ON THE TARGET MACHINE. Goss is now part of the RedHat image, no need to install anymore...
 # https://github.com/goss-org/goss > Installation > Manual installation
 
 
@@ -22,7 +22,6 @@
       copy:
         src: tests/test.yml
         dest: /tmp
-        remote_src: true
         mode: 0777
 
     - name: Test with tests file

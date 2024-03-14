@@ -25,15 +25,21 @@ RUN yum install -y procps-ng
 RUN yum install -y man
 RUN yum install -y zip
 
+# TODO: Install python3
+
+
 # Create alias
 RUN echo "alias ll='ls -lha --color'" >> /root/.bashrc
+
+# Install goss
+COPY files/goss-linux-amd64 /usr/local/bin/goss
+RUN chmod +rx /usr/local/bin/goss
 
 # Configure ssh
 RUN yum install -y openssh-server
 RUN echo 'root:Passw0rd' | chpasswd
 RUN cd /etc/ssh
 RUN ssh-keygen -A
-
 
 WORKDIR /tmp
 

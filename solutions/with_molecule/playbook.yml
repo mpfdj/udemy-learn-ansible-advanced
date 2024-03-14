@@ -1,8 +1,15 @@
 ---
 - name: This play is using Molecule
-  hosts: localhost
+  hosts: target4
   tasks:
-    - name: Install Hello package
-      package:
-        name: hello
+    - name: Copy Hello package
+      copy:
+        src: "{{ playbook_dir }}/files/rpms/hello-2.6-3.fc17.x86_64.rpm"
+        dest: /tmp/hello.rpm
+        mode: 0777
+
+    - name: Install Hello rpm
+      yum:
+        name: /tmp/hello.rpm
         state: present
+        disable_gpg_check : true

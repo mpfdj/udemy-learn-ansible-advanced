@@ -106,7 +106,9 @@ export ANSIBLE_STDOUT_CALLBACK=json
 # Molecule
 https://medium.com/@fabio.marinetti81/validate-ansible-roles-through-molecule-delegated-driver-a2ea2ab395b5
 molecule init scenario -d default test-hello-is-present
+molecule init scenario --driver-name=docker test-hello-is-present-docker
 molecule test --scenario-name test-hello-is-present
+molecule test --scenario-name test-hello-is-present-docker -- -i ../../inventory.ini
 molecule test --all
 
 
@@ -119,6 +121,7 @@ apt-get purge openjdk*
 # Goss
 https://github.com/goss-org/goss
 https://github.com/goss-org/goss/blob/master/docs/manual.md#available-tests
+https://github.com/goss-org/goss/blob/master/docs/cli.md
 
 # Goss Manual installation
 curl -L https://github.com/goss-org/goss/releases/latest/download/goss-linux-amd64 -o /usr/local/bin/goss
