@@ -1,8 +1,6 @@
 ---
 - name: Verify
-  hosts: target4
-#  connection: local
-#  gather_facts: false
+  hosts: redhat_servers
   vars:
     molecule_scenario: "{{ lookup('env', 'MOLECULE_SCENARIO_NAME') }}"
     molecule_test_directory: "{{ lookup('env', 'MOLECULE_VERIFIER_TEST_DIRECTORY') }}"
@@ -14,12 +12,10 @@
           - "molecule_test_directory: {{ molecule_test_directory }}"
 
 
-# TODO: DON'T FORGET TO INSTALL GOSS ON THE TARGET MACHINE. Goss is now part of the RedHat image, no need to install anymore...
-# https://github.com/goss-org/goss > Installation > Manual installation
+    # TODO: DON'T FORGET TO INSTALL GOSS ON THE TARGET MACHINE. Goss is now part of the RedHat image, no need to install anymore...
+    # https://github.com/goss-org/goss > Installation > Manual installation
 
 
-
-# TODO: First we need to install python3 on the target node, this is required by Ansible
 
     - name: Copy Goss test to guest
       copy:
@@ -31,7 +27,10 @@
       goss:
         path: /tmp/test.yml
         format: junit
-        output_file: /tmp/goss-junit.xml
+        output_file: /tmp/test-junit.xml
 
-    - name: Debug
-      debug:
+    - name: Store file
+      fetch:
+        src: /tmp/test-junit.xml
+        dest: tests/test-junit.xml
+        flat: true

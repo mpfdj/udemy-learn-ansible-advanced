@@ -108,7 +108,8 @@ https://medium.com/@fabio.marinetti81/validate-ansible-roles-through-molecule-de
 molecule init scenario -d default test-hello-is-present
 molecule init scenario --driver-name=docker test-hello-is-present-docker
 molecule test --scenario-name test-hello-is-present
-molecule test --scenario-name test-hello-is-present-docker -- -i ../../inventory.ini
+molecule test --scenario-name test-hello-is-present-delegate -- -i ../../inventory.ini
+molecule test --scenario-name test-hello-is-present-delegate
 molecule test --all
 
 

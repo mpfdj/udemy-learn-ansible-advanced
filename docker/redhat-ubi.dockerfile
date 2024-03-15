@@ -5,7 +5,7 @@
 
 # docker image build -f redhat-ubi.dockerfile -t miel1980/redhat-ssh-enabled .
 # docker container run --rm --privileged -it miel1980/redhat-ssh-enabled /bin/bash
-
+# docker exec -it target4 /bin/bash
 
 FROM redhat/ubi8:8.9
 
@@ -24,9 +24,8 @@ RUN yum install -y wget
 RUN yum install -y procps-ng
 RUN yum install -y man
 RUN yum install -y zip
-
-# TODO: Install python3
-
+RUN yum install -y python3.11
+RUN yum install -y python3.11-pip
 
 # Create alias
 RUN echo "alias ll='ls -lha --color'" >> /root/.bashrc
