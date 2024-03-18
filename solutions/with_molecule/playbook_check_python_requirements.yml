@@ -1,0 +1,11 @@
+---
+- name: Check Python requirements for community.Docker collection on Ansible host node
+  hosts: localhost
+  tasks:
+    - name: Show python lib/site paths
+      community.general.python_requirements_info:
+      register: python_requirements
+
+    - name: Debug
+      debug:
+        var: python_requirements

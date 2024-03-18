@@ -130,3 +130,20 @@ chmod +rx /usr/local/bin/goss
 
 # Goss ansible module
 https://github.com/indusbox/goss-ansible/tree/master
+
+
+# Install Ansible Docker collection
+https://docs.ansible.com/ansible/latest/collections/community/docker/docsite/scenario_guide.html
+cd udemy-learn-ansible-advanced
+mkdir -p solutions/with_molecule/collections/ansible_collections
+cd solutions/with_molecule/collections/ansible_collections
+ansible-galaxy collection install community.docker -p . --force
+ansible-galaxy collection install community.general -p . --force
+pip3 install docker
+
+
+# Molecule and Docker
+https://ansible.readthedocs.io/projects/molecule/examples/docker/
+
+https://forums.docker.com/t/docker-errors-dockerexception-error-while-fetching-server-api-version-connection-aborted-filenotfounderror-2-no-such-file-or-directory-error-in-python/135637/9
+https://groups.google.com/g/ansible-project/c/1j_tUv5noHw

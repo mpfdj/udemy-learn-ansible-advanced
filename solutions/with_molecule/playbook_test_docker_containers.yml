@@ -1,0 +1,27 @@
+- name: Playbook with Docker tests
+  hosts: localhost
+  vars:
+    platforms:
+      - name: molecule-ubuntu
+        image: ubuntu:latest
+
+  tasks:
+    - name: Login to Docker hub
+      community.docker.docker_login:
+        registry_url: https://index.docker.io/v1/
+        username: miel1980
+        password: Kimmie123
+
+    - name: Create a container
+      community.docker.docker_container:
+        name: "{{ item.name }}"
+        image: "{{ item.image }}"
+        state: started
+        command: sleep 1d
+        log_driver: json-file
+      register: result
+      loop: "{{ platforms }}"
+
+    - name: Print some info
+      ansible.builtin.debug:
+        msg: "{{ result.results }}"
