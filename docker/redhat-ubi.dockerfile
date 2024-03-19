@@ -24,6 +24,7 @@ RUN yum install -y wget
 RUN yum install -y procps-ng
 RUN yum install -y man
 RUN yum install -y zip
+RUN yum install -y iproute
 RUN yum install -y python3.11
 RUN yum install -y python3.11-pip
 

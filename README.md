@@ -145,5 +145,12 @@ pip3 install docker
 # Molecule and Docker
 https://ansible.readthedocs.io/projects/molecule/examples/docker/
 
-https://forums.docker.com/t/docker-errors-dockerexception-error-while-fetching-server-api-version-connection-aborted-filenotfounderror-2-no-such-file-or-directory-error-in-python/135637/9
-https://groups.google.com/g/ansible-project/c/1j_tUv5noHw
+
+# How to connect to the Docker host from inside a Docker container?
+https://medium.com/@TimvanBaarsen/how-to-connect-to-the-docker-host-from-inside-a-docker-container-112b4c71bc66
+https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host
+
+# Added --add-host flag
+docker container run --rm --privileged --volume "C:\Users\TO11RC\OneDrive - ING\miel\workspace\Ansible_P03881_P17064-BW5_15:/tmp/ansible" --add-host=host.docker.internal:host-gateway -it ansible-8.0-redhat /bin/bash
+pip3 install docker
+yum install -y iproute
