@@ -1,0 +1,13 @@
+---
+- name: Test with Docker driver
+  hosts: molecule-ubuntu
+  gather_facts: false
+  tasks:
+    - name: Check uname
+      ansible.builtin.raw: uname -a
+      register: result
+      changed_when: false
+
+    - name: Display uname info
+      ansible.builtin.debug:
+        var: result

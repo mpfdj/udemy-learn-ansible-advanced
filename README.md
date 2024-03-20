@@ -106,10 +106,10 @@ export ANSIBLE_STDOUT_CALLBACK=json
 # Molecule
 https://medium.com/@fabio.marinetti81/validate-ansible-roles-through-molecule-delegated-driver-a2ea2ab395b5
 molecule init scenario -d default test-hello-is-present
-molecule init scenario --driver-name=docker test-hello-is-present-docker
-molecule test --scenario-name test-hello-is-present
-molecule test --scenario-name test-hello-is-present-delegate -- -i ../../inventory.ini
-molecule test --scenario-name test-hello-is-present-delegate
+molecule init scenario test-hello-is-present-docker
+molecule test -s test-hello-is-present-delegate -- -i ../../inventory.ini
+molecule test -s test-hello-is-present-delegate
+molecule test -s test-hello-is-present-docker
 molecule test --all
 
 

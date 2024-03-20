@@ -1,9 +1,11 @@
 - name: Playbook with Docker tests
   hosts: localhost
-#  vars:
-#    platforms:
-#      - name: molecule-ubuntu
-#        image: ubuntu:latest
+  environment:
+    DOCKER_HOST: tcp://host.docker.internal:2375
+  vars:
+    platform:
+      name: molecule-ubuntu
+      image: ubuntu:18.04
 
   tasks:
     - name: Get info on docker host
@@ -11,8 +13,8 @@
         docker_host: "tcp://host.docker.internal:2375"
         images: true
         verbose_output: false
-      register: info
+      register: docker_host_info
 
-    - name: Docker info
+    - name: Debug Docker host info
       debug:
-        var: info
+        var: docker_host_info
