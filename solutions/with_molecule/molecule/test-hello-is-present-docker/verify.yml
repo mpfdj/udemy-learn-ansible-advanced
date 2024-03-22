@@ -1,0 +1,64 @@
+---
+- name: Verify
+  hosts: molecule
+  tasks:
+    - name: Copy Goss test to guest
+      copy:
+        src: tests/test.yml
+        dest: /tmp
+        mode: 0777
+
+    - name: Test with tests file
+      goss:
+        path: /tmp/test.yml
+        format: junit
+        output_file: /tmp/test-junit.xml
+      ignore_errors: true
+      register: test_results
+
+    - name: Debug test_results
+      debug:
+        var: test_results
+
+
+    - name: Store file
+      fetch:
+        src: /tmp/test-junit.xml
+        dest: tests/test-junit.xml
+        flat: true
+
+    - name: Read junit file
+      set_fact:
+        xmlstring_raw: "{{ lookup('ansible.builtin.file', 'tests/test-junit.xml') }}"
+
+    - name: Pretty print
+      xml:
+        xmlstring: "{{ xmlstring_raw }}"
+        input_type: xml
+        pretty_print : yes
+      register: xmlstring_pretty
+      delegate_to: localhost
+
+    - name: Create file
+      copy:
+        content: "{{ xmlstring_pretty.xmlstring }}"
+        dest: tests/test-junit-pretty.xml
+      delegate_to: localhost
+
+    - name: Find and replace double quotes
+      command: sed -i "s/\"/\'/g" tests/test-junit-pretty.xml
+      delegate_to: localhost
+
+    - name: Get content from xml file
+      command: cat tests/test-junit-pretty.xml
+      register: test_results_pretty
+      delegate_to: localhost
+
+    - name: Show test result
+      debug:
+        msg: "Goss test result: {{ 'FAILED' if test_results.failed else 'SUCCESSFUL' }}"
+
+# TODO: filter out failures only
+    - name: Goss junit test result
+      debug:
+        msg: "{{ test_results_pretty.stdout_lines }}"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="goss" errors="0" tests="5" failures="1" skipped="0" time="0.007" timestamp="2024-03-22T15:54:45+01:00">
+<testcase name="Command hello --version | head -n1 exit-status" time="0.002">
+<system-out>Command: hello --version | head -n1: exit-status: matches expectation: 0</system-out>
+</testcase>
+<testcase name="Command hello --version | head -n1 stdout" time="0.000">
+<system-out>Command: hello --version | head -n1: stdout: matches expectation: [&#34;hello (GNU hello) 2.6&#34;]</system-out>
+</testcase>
+<testcase name="Command hello exit-status" time="0.005">
+<system-out>Command: hello: exit-status: matches expectation: 0</system-out>
+</testcase>
+<testcase name="Command hello stdout" time="0.000">
+<system-out>Command: hello: stdout: matches expectation: [&#34;Hello, world!&#34;]</system-out>
+</testcase>
+<testcase name="Package hello installed" time="0.004">
+<system-err>Package: hello: installed: Expected true to equal false</system-err>
+<failure>Package: hello: installed: Expected true to equal false</failure>
+</testcase>
+</testsuite>

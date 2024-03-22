@@ -1,13 +1,7 @@
 ---
-#scenario:
-#  name: test-hello-is-present-docker
-#  ephemeral_directory: cache
-
 platforms:
-  - name: molecule-ubuntu
-    image: ubuntu:18.04
-#  - name: redhat-ubuntu
-#    image: miel1980/redhat-ssh-enabled:latest
+  - name: molecule-redhat
+    image: miel1980/redhat-ssh-enabled:latest
 
 provisioner:
   name: ansible
@@ -20,4 +14,5 @@ scenario:
   test_sequence:
     - create
     - converge
+    - verify
     - destroy

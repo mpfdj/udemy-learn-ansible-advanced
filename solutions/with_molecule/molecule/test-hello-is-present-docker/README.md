@@ -1,0 +1,3 @@
+This scenario is designed to have an inventory of only 1 machine (molecule-redhat).
+
+If we want to support multiple platforms (see molecule.yml) we have to add looping...

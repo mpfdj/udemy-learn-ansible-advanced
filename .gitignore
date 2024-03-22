@@ -80,5 +80,6 @@ fabric.properties
 /solutions/with_inventories/*.log
 /solutions/with_collections/*.log
 /solutions/with_molecule/*.log
+/solutions/with_molecule/molecule/test-hello-is-present-docker/tests/*.xml
 /.idea/
 /solutions/with_molecule/collections/ansible_collections/community/

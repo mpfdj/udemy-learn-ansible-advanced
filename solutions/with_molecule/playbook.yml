@@ -1,6 +1,6 @@
 ---
 - name: This play is using Molecule
-  hosts: redhat_servers
+  hosts: redhat_servers,molecule
   tasks:
     - name: Copy Hello package
       copy:

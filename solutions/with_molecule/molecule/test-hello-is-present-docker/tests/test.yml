@@ -1,0 +1,14 @@
+---
+package:
+  hello:
+    installed: false
+
+command:
+  hello --version | head -n1:
+    exit-status: 0
+    stdout:
+      - hello (GNU hello) 2.6
+  hello:
+    exit-status: 0
+    stdout:
+      - Hello, world!
