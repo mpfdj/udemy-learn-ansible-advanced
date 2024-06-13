@@ -150,8 +150,9 @@ https://ansible.readthedocs.io/projects/molecule/examples/docker/
 https://medium.com/@TimvanBaarsen/how-to-connect-to-the-docker-host-from-inside-a-docker-container-112b4c71bc66
 https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host
 
+# Run below command to set up the Ansible controller node
 # Added --add-host flag
-docker container run --rm --privileged --volume "C:\Users\TO11RC\OneDrive - ING\miel\workspace\Ansible_P03881_P17064-BW5_15:/tmp/ansible" --add-host=host.docker.internal:host-gateway -it ansible-8.0-redhat /bin/bash
+docker container run --rm --privileged --name ansible-8.0-Controller --volume "C:\Users\TO11RC\OneDrive - ING\miel\workspace\Ansible_P03881_P17064-BW5_15:/tmp/ansible" --add-host=host.docker.internal:host-gateway -it ansible-8.0-redhat /bin/bash
 pip3 install docker
 yum install -y iproute
 cat /etc/hosts
