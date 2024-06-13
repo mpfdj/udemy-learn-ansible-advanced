@@ -154,3 +154,4 @@ https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-t
 docker container run --rm --privileged --volume "C:\Users\TO11RC\OneDrive - ING\miel\workspace\Ansible_P03881_P17064-BW5_15:/tmp/ansible" --add-host=host.docker.internal:host-gateway -it ansible-8.0-redhat /bin/bash
 pip3 install docker
 yum install -y iproute
+cat /etc/hosts
