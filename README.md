@@ -156,3 +156,22 @@ docker container run --rm --privileged --name ansible-8.0-Controller --volume "C
 pip3 install docker
 yum install -y iproute
 cat /etc/hosts
+
+
+
+
+# Alpine (Bash is not installed use Korn shell instead)
+docker image build -f alpine.dockerfile -t miel1980/alpine-ssh-enabled .
+docker container run -d --rm --privileged --name alpine1 miel1980/alpine-ssh-enabled
+docker inspect alpine1 | grep IPAddress
+
+
+docker container run -d --rm --privileged --name alpine1 -it miel1980/alpine-ssh-enabled /bin/sh
+docker exec -it alpine1 /bin/sh
+
+
+
+
+# Docker empty build cache
+# https://depot.dev/blog/docker-clear-cache
+docker builder prune

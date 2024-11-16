@@ -1,0 +1,7 @@
+---
+- name: My playbook
+  hosts: alpine1
+  tasks:
+    - name: Debug
+      debug:
+        msg: "ansible_host: {{ ansible_host }}"
