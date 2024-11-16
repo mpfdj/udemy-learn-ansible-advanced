@@ -39,7 +39,7 @@ Password: Passw0rd
 
 
 # Ansible ad-hoc command
-ansible target1 -m ping -i inventory.txt
+ansible target1 -m ping -i inventory.ini
 
 
 
