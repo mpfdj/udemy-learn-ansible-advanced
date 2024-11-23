@@ -1,0 +1,23 @@
+---
+# https://linuxconfig.org/introduction-to-ansible-prompts-and-runtime-variables
+
+- hosts: localhost
+  become: yes
+
+  vars_prompt:
+    - name: username
+      prompt: Please provide the username
+      default: foo
+      private: no
+
+    - name: password
+      prompt: password
+      encrypt: sha512_crypt
+      confirm: yes
+
+  tasks:
+    - name: Get variables from the prompt
+      debug:
+        msg:
+          - "Username is: {{ username }}"
+          - "Password is: {{ password }}"

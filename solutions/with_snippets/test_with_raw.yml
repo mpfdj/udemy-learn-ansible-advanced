@@ -1,0 +1,28 @@
+#---
+
+
+# Does Ansible shell module need python on target server?
+# https://stackoverflow.com/questions/62714153/does-ansible-shell-module-need-python-on-target-server
+
+
+#  Any ansible operation requires python on the target node except the raw and script modules.
+#
+#    Please note that these two modules are primarily meant to install ansible requirements (i.e. Python and its mandatory modules) on targets where they are missing.
+#
+#    In other words, Python is definitely a requirement to run ansible following all best practices (e.g. using modules when they exists, creating idempotent tasks...). If installing Python on your targets is not an option, don't use ansible, choose an other tool.
+#
+#  References:
+#
+#    Ansible managed node requirements
+#    raw module
+#    script module
+
+- hosts: localhost
+  tasks:
+    - name: s
+      raw: python >/dev/null 2>&1 && echo "Python 2.x is installed" || echo "Python 2.x is not installed"
+      register: python
+
+    - name: Debug
+      debug:
+        var: python
