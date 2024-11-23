@@ -16,3 +16,34 @@
           - "miel: {{ miel }}"
           - "kim: {{ kim }}"
           - "bella: {{ bella }}"
+
+# Include vault file via vars_files tag
+- hosts: localhost
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Debug from LOCALHOST
+      debug:
+        msg:
+          - "miel: {{ miel }}"
+          - "kim: {{ kim }}"
+          - "bella: {{ bella }}"
+
+
+# Remove execute permissions
+# cd vaults
+# chmod a-x password_dev.txt password_prd.txt
+
+- name: Test multiple vaults
+  hosts: localhost
+  vars_files:
+    - vaults/dev.yml
+    - vaults/prd.yml
+  tasks:
+
+    # Variables must be named differently because they get overridden...
+    - name: Debug VAULT FILES
+      debug:
+        msg:
+          - "dev_miel: {{ dev_miel }}"
+          - "prd_miel: {{ prd_miel }}"
