@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Debug from LOCALHOST
+      debug:
+        msg:
+          - "miel: {{ miel }}"
+          - "kim: {{ kim }}"
+          - "bella: {{ bella }}"
+
+- hosts: alpine_servers
+  tasks:
+    - name: Debug from ALPINE_SERVERS
+      debug:
+        msg:
+          - "miel: {{ miel }}"
+          - "kim: {{ kim }}"
+          - "bella: {{ bella }}"
