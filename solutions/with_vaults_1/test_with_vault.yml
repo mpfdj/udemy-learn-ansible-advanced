@@ -1,0 +1,14 @@
+---
+- name: Test multiple vaults
+  hosts: alpine_servers
+  tasks:
+    - name: Debug variables
+      debug:
+        msg:
+          - "miel: {{ miel }}"
+          - "kim: {{ kim }}"
+          - "bella: {{ bella }}"
+
+
+# ansible-playbook -i inventories/development --vault-password-file inventories/development/password.txt test_with_vault.yml
+# ansible-playbook -i inventories/test --vault-password-file inventories/test/password.txt test_with_vault.yml

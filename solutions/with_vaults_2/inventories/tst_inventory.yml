@@ -1,0 +1,18 @@
+---
+alpine_servers:
+  hosts:
+    alpine1:
+      ansible_host: 172.17.0.3
+      name: alpine1_tst
+    alpine2:
+      ansible_host: 172.17.0.4
+      name: alpine2_tst
+    alpine3:
+      ansible_host: 172.17.0.5
+      name: alpine3_tst
+all:
+  vars:
+    ansible_connection: ssh
+    ansible_user: root
+    ansible_ssh_pass: Passw0rd
+    name: all  # Gets overridden by hosts variables

@@ -1,0 +1,17 @@
+---
+- name: Test multiple vaults
+  hosts: alpine_servers
+  vars_files:
+    - vars/main.yml
+    - inventories/{{ stage }}_vault.yml
+  tasks:
+    - name: Debug variables
+      debug:
+        msg:
+          - "miel: {{ miel }}"
+          - "kim: {{ kim }}"
+          - "bella: {{ bella }}"
+          - "name: {{ name }}"
+
+#  ansible-playbook -i inventories/dev_inventory.yml -e stage=dev --vault-password-file inventories/dev_password.txt test_with_vault.yml
+#  ansible-playbook -i inventories/tst_inventory.yml -e stage=tst --vault-password-file inventories/tst_password.txt test_with_vault.yml

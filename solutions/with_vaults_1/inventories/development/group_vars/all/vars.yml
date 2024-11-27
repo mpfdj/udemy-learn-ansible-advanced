@@ -1,0 +1,4 @@
+---
+miel: "{{ vault_miel }}"
+kim: kim
+bella: bella

@@ -16,6 +16,7 @@ Create vars.yml and vault.yml files
 
 # Encrypt vault file
 ansible-vault encrypt vault.yml (set password to miel)
+ansible-vault encrypt --vault-id dev@prompt vault_dev.yml
 ansible-vault edit vault.yml
 ansible-vault view vault.yml
 
