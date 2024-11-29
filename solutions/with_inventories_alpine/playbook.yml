@@ -1,7 +1,12 @@
 ---
 - name: My playbook
-  hosts: alpine1
+  hosts: alpine_servers_1
+#  hosts: alpine_servers_1:!alpine_servers_2
+#  hosts: alpine_servers_1[0]
   tasks:
     - name: Debug
       debug:
-        msg: "ansible_host: {{ ansible_host }}"
+        msg:
+          - "inventory_hostname: {{ inventory_hostname }}"
+          - "group_names: {{ group_names }}"
+          - "name: {{ name }}"

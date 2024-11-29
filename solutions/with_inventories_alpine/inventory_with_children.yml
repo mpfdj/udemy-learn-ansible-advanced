@@ -1,0 +1,61 @@
+---
+
+#alpine_servers:
+#  hosts:
+#    alpine1:
+#      ansible_host: 172.17.0.3
+#      name: group1_alpine1
+#    alpine2:
+#      ansible_host: 172.17.0.4
+#      name: group1_alpine2
+#    alpine3:
+#      ansible_host: 172.17.0.5
+#      name: group1_alpine3
+#
+#all:
+#  vars:
+#    ansible_connection: ssh
+#    ansible_user: root
+#    ansible_ssh_pass: Passw0rd
+#    name: all  # Gets overridden by hosts variables
+
+
+# Below doesn't work, use 2 separate inventory files instead when you want to use the same hostnames (alpine1, alpine2, alpine3)
+
+
+
+alpine_servers:
+  children:
+    alpine_servers_1:
+      hosts:
+        alpine1:
+          ansible_host: 172.17.0.3
+          name: group1_alpine1
+        alpine2:
+          ansible_host: 172.17.0.4
+          name: group1_alpine2
+        alpine3:
+          ansible_host: 172.17.0.5
+          name: group1_alpine3
+        localhost1:
+          ansible_connection: local
+          ansible_host: localhost
+
+    alpine_servers_2:
+      hosts:
+        alpine1:
+          ansible_host: 172.17.0.3
+          name: group2_alpine1
+        alpine2:
+          ansible_host: 172.17.0.4
+          name: group2_alpine2
+        alpine3:
+          ansible_host: 172.17.0.5
+          name: group2_alpine3
+
+all:
+  vars:
+    ansible_connection: ssh
+    ansible_user: root
+    ansible_ssh_pass: Passw0rd
+    name: all  # Gets overridden by hosts variables
